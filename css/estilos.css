@@ -1,89 +1,185 @@
-.video {
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Fondo de video */
+.video-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   z-index: -1;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #2e3192;
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
+/* Capa de contenido */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 80%;
+  max-height: 100%;
+}
+
+.hoja {
   padding: 20px;
-  background-color: #0000FF;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;  
+  display: flex;
+  width: 80%;
+  max-height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+/* Lado izquierdo y derecho */
+.left-side, .right-side {
+  flex: 1;
+  display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
-header {
-  color: #000000;
-  text-align: center;
-  padding: 10px 0;
+.left-side {
+  background-color: rgba(173, 216, 230);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
-h1, h2 {
-  color: #000000;
+.right-side {
+  flex: 2;
+  background-color: #ffffff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones */
+.info-section, 
+.experience-section, 
+.education-section, 
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.contact-section h2,
+.experience-section h2,
+.education-section h2,
+.courses-section h2 {
+  padding: 10px;
+  background-color: #1f2c56;
+  color: #ffffff;
+}
+
+h2{
+  padding: 5px 10px;
+  border-radius: 8px;
   margin: 0;
 }
 
-h5 {
-  color: #333;
+.info-section h1, .info-section h3 {
+  margin: 10px 0;
+  font-family: Arial, sans-serif;
+  color: blue;
 }
 
-.section {
-  padding: 20px;
-  margin: 20px 0;
-  background-color: #9eedfc;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.section-header {
-  background-color: #65c8d0;
+/* Imagen de perfil */
+.profile-picture {
+  width: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 5px 10px;
 }
 
-.contact-info {
+/* Lista de contactos */
+.contact-list {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-section, .courses-section {
+  padding: 5px 10px;
+  border-radius: 0px;
+  margin: 0;
 }
 
 .contact-item {
-  width: 24%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item:hover {
+  opacity: 0.7;
+}
+
+.contact-logo {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.centered-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.contact-item img {
-  max-width: 50px;
-}
-
-.contact-item p {
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-.contact-item a {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-  color: #888;
+/* Responsividad */
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    height: auto;
+  }
+  
+  .left-side, .right-side {
+    padding: 10px;
+  }
+  
+  .left-side {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+  
+  .right-side {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .profile-picture {
+    width: 70px;
+  }
 }
